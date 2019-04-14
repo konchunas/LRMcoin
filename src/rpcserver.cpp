@@ -360,6 +360,7 @@ static const CRPCCommand vRPCCommands[] =
         {"lrmcoin", "createmasternodebroadcast", &createmasternodebroadcast, true, true, false},
         {"lrmcoin", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
         {"lrmcoin", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
+        {"lrmcoin", "masternodecoldcreate", &masternodecoldcreate, true, true, false},
         {"lrmcoin", "masternodecurrent", &masternodecurrent, true, true, false},
         {"lrmcoin", "masternodedebug", &masternodedebug, true, true, false},
         {"lrmcoin", "startmasternode", &startmasternode, true, true, false},
