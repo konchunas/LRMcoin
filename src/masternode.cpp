@@ -840,7 +840,7 @@ void CMasternodePing::Relay()
     RelayInv(inv);
 }
 
-bool CMasternodeBroadcast::ColdCreate(std::string strService, std::string strKeyMasternode, std::string strTxHash, std::string strOutputIndex, std::string best_block, CKey collateralKey, std::string &strErrorRet, CMasternodeBroadcast &mnbRet) {
+bool CMasternodeBroadcast::ColdCreate(std::string strService, std::string strKeyMasternode, std::string strTxHash, int outputIndex, std::string best_block, CKey collateralKey, std::string &strErrorRet, CMasternodeBroadcast &mnbRet) {
     LogPrintf("CMasternodeBroadcast::ColdCreate\n");
     CPubKey pubKeyMasternodeNew;
     CKey keyMasternodeNew;
@@ -871,8 +871,7 @@ bool CMasternodeBroadcast::ColdCreate(std::string strService, std::string strKey
     CMasternodePing ping;
     ping.blockHash = uint256S(best_block);
     auto hash_txin = uint256S(strTxHash);
-    auto out_index = 1;
-    auto prevout = COutPoint(hash_txin, out_index);
+    auto prevout = COutPoint(hash_txin, outputIndex);
     auto txin = CTxIn(prevout);
     ping.vin = txin;
     ping.sigTime = GetAdjustedTime();
